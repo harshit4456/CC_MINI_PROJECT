@@ -1,7 +1,6 @@
 const grid = document.getElementById("grid");
 let timer = 0, interval;
 
-// 🔹 Create grid
 for (let i = 0; i < 81; i++) {
     let input = document.createElement("input");
     input.maxLength = 1;
@@ -23,7 +22,6 @@ for (let i = 0; i < 81; i++) {
     grid.appendChild(input);
 }
 
-// 🔹 Timer
 function startTimer() {
     clearInterval(interval);
     timer = 0;
@@ -33,7 +31,6 @@ function startTimer() {
     }, 1000);
 }
 
-// 🔹 Get board
 function getBoard() {
     let inputs = document.querySelectorAll("input");
     let board = [];
@@ -48,7 +45,6 @@ function getBoard() {
     return board;
 }
 
-// 🔹 Set board
 function setBoard(board) {
     let inputs = document.querySelectorAll("input");
     for (let i = 0; i < 9; i++)
@@ -56,7 +52,6 @@ function setBoard(board) {
             inputs[i * 9 + j].value = board[i][j] || "";
 }
 
-// 🔹 Safe check
 function isSafe(board, r, c, n) {
     for (let i = 0; i < 9; i++)
         if (board[r][i] === n || board[i][c] === n) return false;
@@ -69,7 +64,6 @@ function isSafe(board, r, c, n) {
     return true;
 }
 
-// 🔥 Highlight errors
 function highlightErrors() {
     let inputs = document.querySelectorAll("input");
     let board = getBoard();
@@ -95,7 +89,6 @@ function highlightErrors() {
     }
 }
 
-// 🔹 Check Sudoku
 function checkSudoku(showAlert = true) {
     let board = getBoard();
     let valid = true;
@@ -124,7 +117,6 @@ function checkSudoku(showAlert = true) {
     return valid;
 }
 
-// 🔹 Solve
 function solve(board) {
     for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) {
@@ -143,7 +135,6 @@ function solve(board) {
     return true;
 }
 
-// 🔹 Animated solve
 async function solveAnimated() {
     let board = getBoard();
     await solveAnim(board);
@@ -170,7 +161,6 @@ async function solveAnim(board) {
     return true;
 }
 
-// 🔹 Generate
 function generatePuzzle() {
     startTimer();
     let board = Array(9).fill().map(() => Array(9).fill(0));
@@ -187,7 +177,6 @@ function generatePuzzle() {
     setBoard(board);
 }
 
-// 🔹 Clear
 function clearGrid() {
     document.querySelectorAll("input").forEach(i => {
         i.value = "";
