@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sudoku Solver Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light">
+
+    <h1>🧩 Sudoku Solver Pro</h1>
+
+    <div class="controls">
+        <select id="difficulty">
+            <option value="30">Easy</option>
+            <option value="40">Medium</option>
+            <option value="50">Hard</option>
+        </select>
+
+        <button onclick="generatePuzzle()">Generate</button>
+        <button onclick="solveAnimated()">Solve</button>
+        <button onclick="checkSudoku()">Check</button>
+        <button onclick="clearGrid()">Clear</button>
+        <button onclick="toggleDarkMode()">🌙</button>
+    </div>
+
+    <div id="timer">⏱ Time: 0s</div>
+    <div id="result"></div>
+
+    <div id="grid"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
